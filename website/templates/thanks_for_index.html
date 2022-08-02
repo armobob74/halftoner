@@ -1,0 +1,21 @@
+{% extends 'basic_skeleton.html' %} {% block head %}
+<link
+  href="{{url_for('static',filename='css/snitch_style.css')}}"
+  rel="stylesheet"
+/>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 3vh;
+    text-align:center;
+  }
+  img{
+    width:40vw;
+  }
+</style>
+{% endblock %} {% block body %}
+  <h2 style="font-size: 5vh;margin-top:10vh;">Here's your result!</h2>
+  <img src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+{%endblock%}

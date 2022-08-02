@@ -1,0 +1,41 @@
+@import "variables";
+
+@mixin spicy-btn($bg-color: $bg-color-1) {
+  background-color: $bg-color;
+  border: solid 1px $txt-color-1;
+  color: $txt-color-1;
+  padding: 1em;
+  transition: 0.15s;
+  &:hover {
+    background-color: hsl($primary-hue, 15%, $d + 10%);
+    $lighter-txt-color-1: lighter($txt-color-1, 10%);
+    color: $lighter-txt-color-1;
+    border-color: $lighter-txt-color-1;
+    box-shadow: 0 0 3px 0px hsl($primary-hue, 10%, 90%);
+  }
+}
+
+@mixin file-input {
+  padding: 5vh;
+  margin:0;
+  height:60vh;
+  $x: 10%;
+  color: $txt-color-1;
+  background-color: lighten($bg-color-1, $x);
+  border: solid 2px lighten($bg-color-1, $x/2);
+  &:hover {
+    cursor: pointer;
+  }
+}
+@mixin body-starter {
+  background-color: $bg-color-1;
+  color: $txt-color-1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 100vh;
+  width: 100vw;
+}

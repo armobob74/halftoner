@@ -1,0 +1,61 @@
+body {
+  background-color: #262626;
+  color: #b3fff2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 100vh;
+  width: 100vw; }
+  body form {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; }
+    body form * {
+      width: 80vw; }
+    body form button {
+      background-color: #0a5c4e;
+      border: solid 1px #b3fff2;
+      color: #b3fff2;
+      padding: 1em;
+      transition: 0.15s;
+      padding: 10px; }
+      body form button:hover {
+        background-color: #364946;
+        color: lighter(#b3fff2, 10%);
+        border-color: lighter(#b3fff2, 10%);
+        box-shadow: 0 0 3px 0px #e3e8e7; }
+    body form #evidence-label button {
+      background-color: #0a5c4e;
+      border: solid 1px #b3fff2;
+      color: #b3fff2;
+      padding: 1em;
+      transition: 0.15s;
+      width: 20vh; }
+      body form #evidence-label button:hover {
+        background-color: #364946;
+        color: lighter(#b3fff2, 10%);
+        border-color: lighter(#b3fff2, 10%);
+        box-shadow: 0 0 3px 0px #e3e8e7; }
+    body form #evidence-label div {
+      width: 100%;
+      text-align: center; }
+    body form #evidence {
+      padding: 5vh;
+      margin: 0;
+      height: 60vh;
+      color: #b3fff2;
+      background-color: #404040;
+      border: solid 2px #333333; }
+      body form #evidence:hover {
+        cursor: pointer; }
+    body form input[type="text"] {
+      color: #b3fff2;
+      background-color: #404040;
+      border: solid 2px #333333; }
+      body form input[type="text"]:focus {
+        outline: solid 1px #e6fffb; }

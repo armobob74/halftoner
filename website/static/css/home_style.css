@@ -1,0 +1,23 @@
+#box1 {
+  background: #262626;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #box1 button {
+    background-color: #262626;
+    border: solid 1px #b3fff2;
+    color: #b3fff2;
+    padding: 1em;
+    transition: 0.15s; }
+    #box1 button:hover {
+      background-color: #364946;
+      color: lighter(#b3fff2, 10%);
+      border-color: lighter(#b3fff2, 10%);
+      box-shadow: 0 0 3px 0px #e3e8e7; }
+
+#row2 {
+  background-color: #c2c9f0;
+  color: #262626;
+  padding: 1em; }

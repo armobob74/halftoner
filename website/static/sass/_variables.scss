@@ -1,0 +1,8 @@
+$primary-hue: 170; //170
+$d: 15%;
+$bg-color-1: hsl($primary-hue, 0%, $d);
+$txt-color-1: hsl($primary-hue, 100%, 100%-$d);
+
+$hue2: $primary-hue + 60;
+$bg-color-2: hsl($hue2, 60%, 100-$d);
+$txt-color-2: hsl($hue2, 0%, $d);
