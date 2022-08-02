@@ -12,17 +12,23 @@
     text-align:center;
   }
   img{
-    width:40vw;
+	  width: {{imgwidth}}vw;
+	  height: {{imgheight}}vw;
+  }
+  #mainimg{
+	  width: {{1.5 * imgwidth}}vw;
+	  height: {{1.5 * imgheight}}vw;
   }
 </style>
 {% endblock %} {% block body %}
 
   <h2 style="font-size: 5vh;margin-top:10vh;">Here's your result!</h2>
-  <img style="height:{{1.5*imgheight}};width:{{1.5*imgwidth}}" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+  <img id="mainimg" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+  <div>
   <h2 style="font-size: 5vh;margin-top:10vh;">Channels:</h2>
   <div style="display:flex;gap:10px;">
-  <img style="width:{{imgwidth}}vw;height:{{imgheight}}vw" src="{{url_for('static',filename='images/processed/'+case_code+'0.png')}}"> 
-  <img style="width:{{imgwidth}}vw;height:{{imgheight}}vw" src="{{url_for('static',filename='images/processed/'+case_code+'1.png')}}"> 
-  <img style="width:{{imgwidth}}vw;height:{{imgheight}}vw" src="{{url_for('static',filename='images/processed/'+case_code+'2.png')}}"> 
+  <img src="{{url_for('static',filename='images/processed/'+case_code+'0.png')}}"> 
+  <img src="{{url_for('static',filename='images/processed/'+case_code+'1.png')}}"> 
+  <img src="{{url_for('static',filename='images/processed/'+case_code+'2.png')}}"> 
   </div>
 {%endblock%}
