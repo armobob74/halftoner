@@ -41,7 +41,6 @@ def process_image_2(unprocessed_image, dotfun=ht.euclid_dot, spacing=14, angle=3
     halftone_channels = []
     for channel in channels:
         halftone_channel = ht.halftone(channel, dotfun(spacing=spacing, angle=angle))
-        pdb.set_trace()
         halftone_channels.append(halftone_channel)
 
     return Image.merge(mode, halftone_channels)
