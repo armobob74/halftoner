@@ -4,6 +4,7 @@ add a "view channels" button that redirects user to another page
 add safety checks for the files being uploaded
 	--> how big is too big?
 	--> we're sure nothing malicious is accepted, right?
+	--> make sure they submit something!!
 
 add form so users can set spacing, angle, and perhaps dot shape
 

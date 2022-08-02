@@ -8,6 +8,16 @@
 body{
 	height:100vh;
 }
+.customization_options{
+	display:flex;
+}
+.customization_options div{
+	width:50%;
+}
+.customization_options input{
+	_text-align:center;
+	width:70%;
+}
 </style>
 {% endblock %} {% block body %}
 <form action="/" method="post" enctype="multipart/form-data">
@@ -17,6 +27,9 @@ body{
   </label>
   <input id="evidence" name="evidence" type="file" accept="image/*"/>
 </div>
+  <div class="customization_options">
+ 	 {% include 'customization_options.html' %}
+  </div>
   <button type="submit">Submit</button>
 </form>
 {%endblock%}

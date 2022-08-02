@@ -3,14 +3,14 @@ import halftone as ht
 import pdb
 import os
 
-def process_image(path_to_image):
+def process_image(path_to_image, spacing=14, angle=30):
     """
     this is the function actually called from flask
     processes image, then saves image to website/images/processed/{case_code}.png
     """
     unprocessed_image = Image.open(path_to_image)
 
-    processed_image = process_image_2(unprocessed_image) #this part looks good
+    processed_image = process_image_2(unprocessed_image, spacing, angle, dotfun=ht.euclid_dot) #this part looks good
 
     path_to_processed_image = path_to_image.replace('/unprocessed/', '/processed/')
     processed_image.save(path_to_processed_image)
@@ -38,7 +38,7 @@ def process_image(path_to_image):
 
     return None
 
-def process_image_2(unprocessed_image, dotfun=ht.euclid_dot, spacing=14, angle=30):
+def process_image_2(unprocessed_image, spacing=14, angle=30, dotfun=ht.euclid_dot):
     """
     takes in color image and processes that bad boi
     """

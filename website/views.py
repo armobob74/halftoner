@@ -18,7 +18,11 @@ def index():
 
         filepath = f'website/static/images/unprocessed/{case_code}.png'
         pic.save(filepath)
-        process_image(filepath)
+
+        spacing = float(request.form['spacing'])
+        angle = float(request.form['angle'])
+
+        process_image(filepath, spacing, angle)
         image = Image.open(pic)
 
         imgwidth = 20 #vw
