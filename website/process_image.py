@@ -25,9 +25,15 @@ def process_image(path_to_image):
             channel = channels[i]
             channelpath = path_to_processed_image.replace('.png', f'{i}.png')
             path_to_channel.append(channelpath)
+            
+            #reset image channels
             image_channels = [empty_channel] * 3
+            if processed_image.mode == 'RGBA':
+                original_alpha = channels[-1]
+                image_channels.append(original_alpha)
+
             image_channels[i] = channel
-            channel_image = Image.merge('RGB', image_channels)
+            channel_image = Image.merge(processed_image.mode, image_channels)
             channel_image.save(channelpath)
 
     return None
