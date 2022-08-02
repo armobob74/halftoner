@@ -1,0 +1,10 @@
+add a "view channels" button that redirects user to another page
+	--> this would save a lot of data
+
+add safety checks for the files being uploaded
+	--> how big is too big?
+	--> we're sure nothing malicious is accepted, right?
+
+add form so users can set spacing, angle, and perhaps dot shape
+
+add "redo" option that includes different settings
