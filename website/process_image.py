@@ -1,6 +1,7 @@
 from PIL import Image
 import halftone as ht
 import pdb
+import os
 
 def process_image(path_to_image):
     """
@@ -31,7 +32,7 @@ def process_image(path_to_image):
 
     return None
 
-def process_image_2(unprocessed_image, dotfun=ht.circle_dot, spacing=8, angle=30):
+def process_image_2(unprocessed_image, dotfun=ht.euclid_dot, spacing=14, angle=30):
     """
     takes in color image and processes that bad boi
     """
@@ -40,14 +41,15 @@ def process_image_2(unprocessed_image, dotfun=ht.circle_dot, spacing=8, angle=30
     halftone_channels = []
     for channel in channels:
         halftone_channel = ht.halftone(channel, dotfun(spacing=spacing, angle=angle))
+        pdb.set_trace()
         halftone_channels.append(halftone_channel)
 
     return Image.merge(mode, halftone_channels)
 
 if __name__ == "__main__":  
 
-    imagepath = 'static/images/unprocessed/gaixs5j8fomliuwl.png'
+    imagepath = 'static/images/unprocessed/'
+    imagepath += os.listdir(imagepath)[0]
     unprocessed_image = Image.open(imagepath)
-    processed_image = process_image_2(unprocessed_image.convert("L")) #this part looks good
-
+    processed_image = process_image_2(unprocessed_image) #this part looks good
     processed_image.show()
