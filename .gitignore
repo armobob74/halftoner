@@ -1,2 +1,3 @@
 ./website/images
 ./website/__pycache__
+*png
