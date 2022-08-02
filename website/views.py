@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
+import pdb
 import re
 from .str_utils import randstr
 from .process_image import process_image
+from PIL import Image
 
 views = Blueprint('views', __name__)
 
@@ -17,7 +19,11 @@ def index():
         filepath = f'website/static/images/unprocessed/{case_code}.png'
         pic.save(filepath)
         process_image(filepath)
-        return redirect(url_for('views.index_success', case_code=case_code))
+        image = Image.open(pic)
+
+        imgwidth = 20 #vw
+        imgheight = imgwidth * image.height / image.width
+        return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth)
     return render_template('index.html')
 
 @views.route('/index-success/<case_code>')

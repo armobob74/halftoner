@@ -16,6 +16,13 @@
   }
 </style>
 {% endblock %} {% block body %}
+
   <h2 style="font-size: 5vh;margin-top:10vh;">Here's your result!</h2>
-  <img src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+  <img style="height:{{1.5*imgheight}};width:{{1.5*imgwidth}}" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+  <h2 style="font-size: 5vh;margin-top:10vh;">Channels:</h2>
+  <div style="display:flex;gap:10px;">
+  <img style="width:{{imgwidth}}vw;height:{{imgheight}}vw" src="{{url_for('static',filename='images/processed/'+case_code+'0.png')}}"> 
+  <img style="width:{{imgwidth}}vw;height:{{imgheight}}vw" src="{{url_for('static',filename='images/processed/'+case_code+'1.png')}}"> 
+  <img style="width:{{imgwidth}}vw;height:{{imgheight}}vw" src="{{url_for('static',filename='images/processed/'+case_code+'2.png')}}"> 
+  </div>
 {%endblock%}

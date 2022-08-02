@@ -13,6 +13,22 @@ def process_image(path_to_image):
 
     path_to_processed_image = path_to_image.replace('/unprocessed/', '/processed/')
     processed_image.save(path_to_processed_image)
+
+    path_to_channel = []
+    channels = processed_image.split()
+    s = channels[0].size
+    empty_channel = Image.new('L', s)
+    
+    if processed_image.mode == 'RGB' or processed_image.mode == 'RGBA':
+        for i in range(3):
+            channel = channels[i]
+            channelpath = path_to_processed_image.replace('.png', f'{i}.png')
+            path_to_channel.append(channelpath)
+            image_channels = [empty_channel] * 3
+            image_channels[i] = channel
+            channel_image = Image.merge('RGB', image_channels)
+            channel_image.save(channelpath)
+
     return None
 
 def process_image_2(unprocessed_image, dotfun=ht.circle_dot, spacing=8, angle=30):
