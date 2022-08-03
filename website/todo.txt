@@ -6,6 +6,16 @@ add safety checks for the files being uploaded
 	--> we're sure nothing malicious is accepted, right?
 	--> make sure they submit something!!
 
-add form so users can set spacing, angle, and perhaps dot shape
+[done] add form so users can set spacing, angle, and perhaps dot shape
+ [todo] add this to the results page too
 
-add "redo" option that includes different settings
+
+[todo] find a way to stop saving files on the server
+	--> Image.open() will work directly on werkzeug FileStorage objects
+	--> but how do you send an image directly to html page?
+	--> and how do I give option to see channels if image not saved?
+		--> maybe do channel stuff on front-end?
+
+[todo] move halftone thing to front-end
+	--> long-term goal incase I need to scale this thing
+	--> would require either using or creating a js halftone library
