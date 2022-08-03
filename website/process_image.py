@@ -3,7 +3,7 @@ import halftone as ht
 import pdb
 import os
 
-def process_image(path_to_image, spacing=14, angles = [0,45,70]):
+def process_image(path_to_image, spacing=14, angles = [30,45,120]):
     """
     this is the function actually called from flask
     processes image, then saves image to website/images/processed/{case_code}.png
@@ -51,7 +51,6 @@ def process_image_2(unprocessed_image, spacing=14, angles = [0, 45, 70], dotfun=
 
     halftone_channels = []
 
-    angles = [0,45,70]
     angle_iter = iter(angles)
     for channel in channels:
         angle = next(angle_iter)

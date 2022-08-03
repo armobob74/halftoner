@@ -20,9 +20,9 @@ def index():
         pic.save(filepath)
 
         spacing = float(request.form['spacing'])
-        angle = float(request.form['angle'])
+        #angle = float(request.form['angle'])
 
-        process_image(filepath, spacing, angle)
+        process_image(filepath, spacing)
         image = Image.open(pic)
 
         imgwidth = 20 #vw
