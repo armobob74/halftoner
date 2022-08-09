@@ -24,9 +24,43 @@ def randstr(n):
        a[i] = s[x]
     return ''.join(a)
     
+def is_color(mode):
+    """
+    Return True if a PIL image mode str belongs to a color image
+    Otherwise, return False
+    >>> is_color('RGB')
+    True
+    >>> is_color('RGBA')
+    True
+    >>> is_color('La')
+    False
+    >>> is_color('L')
+    False
+    """
+    if mode[0] == 'L' or mode[0] == '1':
+        return False
+    return True
+
+def has_alpha(mode):
+    """
+    Return True if a PIL image mode str indicates an alpha channel present
+    (This includes premultiplied alpha channels)
+    Otherwise, return False
+    >>> has_alpha('RGBA')
+    True
+    >>> has_alpha('RGBa')
+    True
+    >>> has_alpha('CMYK')
+    False
+    >>> has_alpha('La')
+    True
+    """
+    if mode[-1].upper() == 'A':
+        return True
+    return False
 
 
-
+    
 if __name__=='__main__':
     import doctest
 
