@@ -23,6 +23,16 @@
 {% endblock %} {% block body %}
 
   <h2 style="font-size: 5vh;margin-top:10vh;">Here's your result!</h2>
+
+  <form action="/" method="post" enctype="multipart/form-data">
+	<div>
+	<label for="spacing">Spacing:</label>
+	<input id="spacing" name="spacing" type="text" value={{spacing}}></input>
+	</div>
+  <input id="case_code" name="case_code" type="hidden" value="{{case_code}}"/>
+  <button type="submit">Submit</button>
+  <form>
+
   <img id="mainimg" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
   <div>
   <h2 style="font-size: 5vh;margin-top:10vh;">Channels:</h2>

@@ -11,23 +11,27 @@ views = Blueprint('views', __name__)
 def index():
     if request.method == 'POST':
 
-        case_code = randstr(16) #this string MUST contain no upper case letters
-        #even with no upper case letters, probability of collision before 10^20 codes is 5e-6 if codes are length 16
-        case_code = case_code.lower()
-        pic = request.files['evidence']
-
-        filepath = f'website/static/images/unprocessed/{case_code}.png'
-        pic.save(filepath)
+        #probably could do this with a redirect or something, but case_code=="None" means 
+        #the user is submitting image for first time
+        #otherwise, it is a redo.
+        case_code = request.form['case_code']
+        if case_code == "None":
+            case_code = randstr(16).lower()#this string MUST contain no upper case letters
+            pic = request.files['evidence']
+            filepath = f'website/static/images/unprocessed/{case_code}.png'
+            pic.save(filepath)
+        else:
+            filepath = f'website/static/images/unprocessed/{case_code}.png'
 
         spacing = float(request.form['spacing'])
         #angle = float(request.form['angle'])
 
         process_image(filepath, spacing)
-        image = Image.open(pic)
+        image = Image.open(filepath)
 
         imgwidth = 20 #vw
         imgheight = imgwidth * image.height / image.width
-        return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth)
+        return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth, spacing=spacing)
     return render_template('index.html')
 
 @views.route('/index-success/<case_code>')
