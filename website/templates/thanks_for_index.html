@@ -22,18 +22,24 @@
 </style>
 {% endblock %} {% block body %}
 
-  <h2 style="font-size: 5vh;margin-top:10vh;">Here's your result!</h2>
-
+  <div style="height:100vh;display:flex;flex-direction:column;align-items:center;">
+  <h2 style="font-size: 5vh;">Here's your result!</h2>
+  <img id="mainimg" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
   <form action="/" method="post" enctype="multipart/form-data">
+	  {#
 	<div>
 	<label for="spacing">Spacing:</label>
 	<input id="spacing" name="spacing" type="text" value={{spacing}}></input>
 	</div>
+	#}
+  <div class="customization_options">
+ 	 {% include 'customization_options.html' %}
+  </div>
   <input id="case_code" name="case_code" type="hidden" value="{{case_code}}"/>
-  <button type="submit">Submit</button>
+  <button type="submit">Redo</button>
   <form>
 
-  <img id="mainimg" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+  </div>
   <div>
   <h2 style="font-size: 5vh;margin-top:10vh;">Channels:</h2>
   <div style="display:flex;gap:10px;">
