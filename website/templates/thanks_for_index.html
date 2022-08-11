@@ -1,16 +1,16 @@
 {% extends 'basic_skeleton.html' %} {% block head %}
 <link
-  href="{{url_for('static',filename='css/snitch_style.css')}}"
-  rel="stylesheet"
-/>
+		href="{{url_for('static',filename='css/snitch_style.css')}}"
+		rel="stylesheet"
+		/>
 <style>
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 3vh;
-    text-align:center;
-  }
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	font-size: 3vh;
+	text-align:center;
+}
   img{
 	  width: {{imgwidth}}vw;
 	  height: {{imgheight}}vw;
@@ -22,27 +22,24 @@
 </style>
 {% endblock %} {% block body %}
 
-  <div style="height:100vh;display:flex;flex-direction:column;align-items:center;">
-  <h2 style="font-size: 5vh;">Here's your result!</h2>
-  <img id="mainimg" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
-  <form action="/" method="post" enctype="multipart/form-data">
-  <div class="customization_options">
-	<div>
-	<label for="spacing">Max dot size:</label>
-	<input id="spacing" name="spacing" type="text" value={{spacing}}></input>
-	</div>
-  </div>
-  <input id="case_code" name="case_code" type="hidden" value="{{case_code}}"/>
-  <button type="submit">Redo</button>
-  <form>
+<div style="height:100vh;display:flex;flex-direction:column;align-items:center;">
+	<h2 style="font-size: 5vh;">Here's your result!</h2>
+	<img id="mainimg" src="{{url_for('static',filename='images/processed/'+case_code+'.png')}}"> 
+	<form action="/" method="post" enctype="multipart/form-data">
+		<div class="customization_options">
+			{% include 'customization_options.html' %}
+		</div>
+		<input id="case_code" name="case_code" type="hidden" value="{{case_code}}"/>
+		<button type="submit">Redo</button>
+		<form>
 
-  </div>
-  <div>
-  <h2 style="font-size: 5vh;margin-top:10vh;">Channels:</h2>
-  <div style="display:flex;gap:10px;">
-  <img src="{{url_for('static',filename='images/processed/'+case_code+'0.jpg')}}"> 
-  <img src="{{url_for('static',filename='images/processed/'+case_code+'1.jpg')}}"> 
-  <img src="{{url_for('static',filename='images/processed/'+case_code+'2.jpg')}}"> 
-  <img src="{{url_for('static',filename='images/processed/'+case_code+'3.jpg')}}"> 
-  </div>
-{%endblock%}
+</div>
+<div>
+	<h2 style="font-size: 5vh;margin-top:10vh;">Channels:</h2>
+	<div style="display:flex;gap:10px;">
+		<img src="{{url_for('static',filename='images/processed/'+case_code+'0.jpg')}}"> 
+		<img src="{{url_for('static',filename='images/processed/'+case_code+'1.jpg')}}"> 
+		<img src="{{url_for('static',filename='images/processed/'+case_code+'2.jpg')}}"> 
+		<img src="{{url_for('static',filename='images/processed/'+case_code+'3.jpg')}}"> 
+	</div>
+	{%endblock%}

@@ -1,19 +1,23 @@
 <div>
-<label for="spacing">Max dot size:</label>
-<input id="spacing" name="spacing" type="text" value=8></input>
+	<label for="spacing">Max dot size:</label>
+	<input id="spacing" name="spacing" type="text" value={{defaults['spacing']}}></input>
 </div>
-{# just gonna comment this out for a while
-<div>
-<label for="angle">Angle:</label>
-<input id="angle" name="angle" type="text" value=30></input>
+
+<div class="screen-angles-input" style="">
+	<div>
+		<label for="angle_cyan">Cyan screen angle:</label>
+		<input id="angle_cyan" name="angle_cyan" type="text" value={{defaults['angle_cyan']}} style="width:3em"></input>
+	</div>
+	<div>
+		<label for="angle_magenta">Magenta screen angle:</label>
+		<input id="angle_magenta" name="angle_magenta" type="text" value={{defaults['angle_magenta']}} style="width:3em"></input>
+	</div>
+	<div>
+		<label for="angle_yellow">Yellow screen angle:</label>
+		<input id="angle_yellow" name="angle_yellow" type="text" value={{defaults['angle_yellow']}} style="width:3em"></input>
+	</div>
+	<div>
+		<label for="angle_black">Black screen angle:</label>
+		<input id="angle_black" name="angle_black" type="text" value={{defaults['angle_black']}} style="width:3em"></input>
+	</div>
 </div>
-<div>
-<label for="dottype">Dot type:</label>
-<select id="dottype" name="dottype" type="select" value="Euclidian Dot">
-<option>Euclidian Dot</option>
-<option>Circle</option>
-<option>Line</option>
-<option>Triangle</option>
-</select>
-</div>
-#}

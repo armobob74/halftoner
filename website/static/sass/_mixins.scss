@@ -15,18 +15,6 @@
   }
 }
 
-@mixin file-input {
-  padding: 5vh;
-  margin:0;
-  height:60vh;
-  $x: 10%;
-  color: $txt-color-1;
-  background-color: lighten($bg-color-1, $x);
-  border: solid 2px lighten($bg-color-1, $x/2);
-  &:hover {
-    cursor: pointer;
-  }
-}
 @mixin body-starter {
   background-color: $bg-color-1;
   color: $txt-color-1;

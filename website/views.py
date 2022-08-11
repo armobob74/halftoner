@@ -24,15 +24,33 @@ def index():
             filepath = f'website/static/images/unprocessed/{case_code}.png'
 
         spacing = float(request.form['spacing'])
-        #angle = float(request.form['angle'])
-
-        process_image(filepath, spacing)
+        angles = [
+                    float(request.form['angle_cyan']),
+                    float(request.form['angle_magenta']),
+                    float(request.form['angle_yellow']),
+                    float(request.form['angle_black'])
+                ]
+        process_image(filepath, spacing=spacing, angles=angles)
         image = Image.open(filepath)
 
         imgwidth = 20 #vw
         imgheight = imgwidth * image.height / image.width
-        return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth, spacing=spacing)
-    return render_template('index.html')
+        defaults = {
+                    'spacing': float(request.form['spacing']),
+                    'angle_cyan':float(request.form['angle_cyan']),
+                    'angle_magenta':float(request.form['angle_magenta']),
+                    'angle_yellow':float(request.form['angle_yellow']),
+                    'angle_black':float(request.form['angle_black']),
+                }
+        return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth,defaults=defaults)
+    defaults = {
+                    'spacing': 8,
+                    'angle_cyan':165,
+                    'angle_magenta':45,
+                    'angle_yellow':90,
+                    'angle_black':105,
+    }
+    return render_template('index.html', defaults=defaults)
 
 @views.route('/index-success/<case_code>')
 def index_success(case_code):

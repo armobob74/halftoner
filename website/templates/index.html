@@ -1,8 +1,8 @@
 {% extends 'basic_skeleton.html' %} {% block head %}
 <link
-  href="{{url_for('static',filename='css/snitch_style.css')}}"
-  rel="stylesheet"
-/>
+		href="{{url_for('static',filename='css/snitch_style.css')}}"
+		rel="stylesheet"
+		/>
 
 <style>
 body{
@@ -20,16 +20,16 @@ body{
 </style>
 {% endblock %} {% block body %}
 <form action="/" method="post" enctype="multipart/form-data">
-  <div>
-  <label id="evidence-label" for="evidence">
-    Please upload your photo
-  </label>
-  <input id="evidence" name="evidence" type="file" accept="image/*"/>
-  <input id="case_code" name="case_code" type="hidden" value="None"/>
-</div>
-  <div class="customization_options">
- 	 {% include 'customization_options.html' %}
-  </div>
-  <button type="submit">Submit</button>
+	<div>
+		<label id="evidence-label" for="evidence">
+			Please upload your photo
+		</label>
+		<input id="evidence" name="evidence" type="file" accept="image/*"/>
+		<input id="case_code" name="case_code" type="hidden" value="None"/>
+	</div>
+	<div class="customization_options">
+		{% include 'customization_options.html' %}
+	</div>
+	<button type="submit">Submit</button>
 </form>
 {%endblock%}
