@@ -1,7 +1,7 @@
 .results-display {
   display: flex;
   flex-direction: row; }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1000px) {
     .results-display {
       flex-direction: column; } }
 .img-display {
@@ -23,12 +23,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start; }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
       .customization_options .option-column {
         width: 100%; } }
     .customization_options .option-column label {
       width: 100%; }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1000px) {
     .customization_options {
       flex-direction: column; }
       .customization_options input {
