@@ -4,32 +4,18 @@
 		rel="stylesheet"
 		/>
 
-<style>
-body{
-	height:100vh;
-}
-.customization_options{
-	display:flex;
-}
-.customization_options div{
-	width:50%;
-}
-.customization_options input{
-	width:70%;
-}
-</style>
 {% endblock %} {% block body %}
-<form action="/" method="post" enctype="multipart/form-data">
-	<div>
-		<label id="evidence-label" for="evidence">
+<form action="/" method="post" enctype="multipart/form-data" style="width:80vw">
+	<div style="width:80vw">
+		<label id="evidence-label" for="evidence" style="width:80vw">
 			Please upload your photo
 		</label>
-		<input id="evidence" name="evidence" type="file" accept="image/*"/>
+		<input id="evidence" name="evidence" type="file" accept="image/*"/ style="width:80vw">
 		<input id="case_code" name="case_code" type="hidden" value="None"/>
 	</div>
 	<div class="customization_options">
 		{% include 'customization_options.html' %}
 	</div>
-	<button type="submit">Submit</button>
+	<button type="submit" style="width:80vw">Submit</button>
 </form>
 {%endblock%}

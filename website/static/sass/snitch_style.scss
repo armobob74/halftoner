@@ -1,23 +1,59 @@
 @import "mixins";
 $custom-blue: hsl($primary-hue, 80%, 20%);
 
-.screen-angles-input {
+.results-display {
+	display:flex;
+	flex-direction:row;
+	@media only screen and (max-width:600px){
+		flex-direction:column;
+	}
+ }
+
+ .img-display{
+	 margin:$channel-gap;
+ }
+ .channels-display{
 	display:flex;
 	flex-direction:column;
-	align-items:flex-start;
-	width:50%;
-	label {
-		width:100%;
+	gap:$channel-gap;
+
+	.channels-row{
+		display:flex;
+		gap:$channel-gap;
 	}
-}
+
+
+ }
+ .customization_options{
+	 width:80vw;
+	 display:flex;
+	 .option-column {
+		 width:50%;
+	 	@media only screen and (max-width:600px){
+			width:100%;
+		}
+		 display:flex;
+		 flex-direction:column;
+		 align-items:flex-start;
+		 label {
+			 width:100%;
+		 }
+	 }
+	 @media only screen and (max-width:600px){
+		 flex-direction:column;
+		 input{
+			 width:80%;
+		 }
+	 }
+
+	 .screen-angles-input {
+	 }
+ }
+
 
 body {
   @include body-starter;
   form {
-    * {
-      width: 80vw;
-    }
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
