@@ -17,6 +17,9 @@
 
 .customization_options {
   width: 80vw;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  gap: 1em;
   display: flex; }
   .customization_options .option-column {
     width: 50%;
@@ -86,7 +89,7 @@ body {
     body form #evidence {
       padding: 5vh;
       margin: 0;
-      height: 30vh;
+      height: 60vh;
       color: #b3fff2;
       background-color: #404040;
       border: solid 2px #333333; }
