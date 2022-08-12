@@ -31,6 +31,7 @@ $custom-blue: hsl($primary-hue, 80%, 20%);
 	 gap:1em;
 	 display:flex;
 	 .option-column {
+		 gap:0.5em;
 		 width:50%;
 	 	@media only screen and (max-width:$small-screen-width){
 			width:100%;

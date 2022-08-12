@@ -22,6 +22,7 @@
   gap: 1em;
   display: flex; }
   .customization_options .option-column {
+    gap: 0.5em;
     width: 50%;
     display: flex;
     flex-direction: column;

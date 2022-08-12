@@ -24,6 +24,7 @@ def index():
             filepath = f'website/static/images/unprocessed/{case_code}.png'
 
         spacing = float(request.form['spacing'])
+        black_generation = float(request.form['black_generation'])
         angles = [
                     float(request.form['angle_cyan']),
                     float(request.form['angle_magenta']),
@@ -37,6 +38,7 @@ def index():
         imgheight = imgwidth * image.height / image.width
         defaults = {
                     'spacing': float(request.form['spacing']),
+                    'black_generation': float(request.form['black_generation']),
                     'angle_cyan':float(request.form['angle_cyan']),
                     'angle_magenta':float(request.form['angle_magenta']),
                     'angle_yellow':float(request.form['angle_yellow']),
@@ -45,6 +47,7 @@ def index():
         return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth,defaults=defaults)
     defaults = {
                     'spacing': 8,
+                    'black_generation': 50,
                     'angle_cyan':165,
                     'angle_magenta':45,
                     'angle_yellow':90,
