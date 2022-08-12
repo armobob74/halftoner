@@ -33,6 +33,14 @@
       flex-direction: column; }
       .customization_options input {
         width: 80%; } }
+  .customization_options .screen-angles-input {
+    width: 100%; }
+  .customization_options .input-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; }
+
 body {
   background-color: #262626;
   color: #b3fff2;

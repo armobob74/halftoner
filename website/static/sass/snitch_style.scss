@@ -47,6 +47,14 @@ $custom-blue: hsl($primary-hue, 80%, 20%);
 	 }
 
 	 .screen-angles-input {
+		 width:100%;
+	 }
+
+	 .input-div{
+		 width:100%;
+	 	display:flex;
+		flex-direction:row;
+		justify-content:flex-end;
 	 }
  }
 
