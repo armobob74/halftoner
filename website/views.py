@@ -31,7 +31,7 @@ def index():
                     float(request.form['angle_yellow']),
                     float(request.form['angle_black'])
                 ]
-        process_image(filepath, spacing=spacing, angles=angles)
+        process_image(filepath, spacing=spacing, angles=angles, black_generation=black_generation)
         image = Image.open(filepath)
 
         imgwidth = 20 #vw
@@ -47,7 +47,7 @@ def index():
         return render_template('thanks_for_index.html', case_code=case_code, imgheight=imgheight, imgwidth=imgwidth,defaults=defaults)
     defaults = {
                     'spacing': 8,
-                    'black_generation': 50,
+                    'black_generation': 0.5,
                     'angle_cyan':165,
                     'angle_magenta':45,
                     'angle_yellow':90,

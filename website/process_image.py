@@ -1,17 +1,18 @@
 from PIL import Image
+import numpy as np
 import halftone as ht
 import pdb
 import os
 from .str_utils import is_color, has_alpha
 
-def process_image(path_to_image, spacing=14, angles = [30,45,120,135]):
+def process_image(path_to_image, spacing=14, angles = [30,45,120,135], black_generation=0.5):
     """
     this is the function actually called from flask
     processes image, then saves image to website/images/processed/{case_code}.png
     """
     unprocessed_image = Image.open(path_to_image)
 
-    processed_image = process_image_2(unprocessed_image, spacing, angles, dotfun=ht.circle_dot) #this part looks good
+    processed_image = process_image_2(unprocessed_image, spacing, angles, dotfun=ht.circle_dot, black_generation=black_generation) #this part looks good
 
     path_to_processed_image = path_to_image.replace('/unprocessed/', '/processed/')
     if is_color(processed_image.mode):
@@ -46,7 +47,7 @@ def process_image(path_to_image, spacing=14, angles = [30,45,120,135]):
 
     return None
 
-def process_image_2(unprocessed_image, spacing=14, angles = [0, 45, 70, 135], dotfun=ht.euclid_dot):
+def process_image_2(unprocessed_image, spacing=14, angles = [0, 45, 70, 135], dotfun=ht.euclid_dot, black_generation=0.5):
     """
     takes in color image and processes that bad boi
     """
@@ -54,6 +55,8 @@ def process_image_2(unprocessed_image, spacing=14, angles = [0, 45, 70, 135], do
         unprocessed_image = unprocessed_image.convert('CMYK')
     
     channels = unprocessed_image.split()
+    if is_color(unprocessed_image.mode):
+        channels = generate_black(channels, black_generation)
 
     if has_alpha(unprocessed_image.mode):
         print("Alpha detected!")
@@ -73,10 +76,16 @@ def process_image_2(unprocessed_image, spacing=14, angles = [0, 45, 70, 135], do
 
     return Image.merge(unprocessed_image.mode, halftone_channels)
 
-if __name__ == "__main__":  
+def generate_black(channels,black_generation=0.1):
+    """
+    take in a split CMYK image and return the same image but black-generatified
+    """
+    C,M,Y,K = [np.array(channel) for channel in channels]
+    K = np.array([C,M,Y]).min(0)
+    K = K.astype('float')
+    K *= black_generation
+    K = K.astype('uint8')
+    chans = [C-K, M-K, Y-K, K]
+    #idk if it's necessary to actually convert these  back to L from array
+    return [Image.fromarray(chan,mode='L') for chan in chans]
 
-    imagepath = 'static/images/unprocessed/'
-    imagepath += os.listdir(imagepath)[0]
-    unprocessed_image = Image.open(imagepath)
-    processed_image = process_image_2(unprocessed_image) #this part looks good
-    processed_image.show()
