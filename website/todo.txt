@@ -2,12 +2,12 @@ add a "view channels" button that redirects user to another page
 	--> this would save a lot of data
 
 add safety checks for the files being uploaded
-	--> how big is too big?
-	--> we're sure nothing malicious is accepted, right?
-	--> make sure they submit something!!
+	--> how big is too big? [done -- 1024 px limit]
+	--> we're sure nothing malicious is accepted, right? [lol]
+	--> make sure they submit something!! [TODO]
 
 [done] add form so users can set spacing, angle, and perhaps dot shape
- [todo] add this to the results page too
+[done] add this to the results page too
 
 
 [todo] find a way to stop saving files on the server
