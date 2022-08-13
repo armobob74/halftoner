@@ -3,6 +3,7 @@ import numpy as np
 import halftone as ht
 import pdb
 import os
+from .pil_utils import resize_if_too_large
 from .str_utils import is_color, has_alpha
 
 def process_image(path_to_image, spacing=14, angles = [30,45,120,135], black_generation=0.5):
@@ -11,6 +12,7 @@ def process_image(path_to_image, spacing=14, angles = [30,45,120,135], black_gen
     processes image, then saves image to website/images/processed/{case_code}.png
     """
     unprocessed_image = Image.open(path_to_image)
+    unprocessed_image = resize_if_too_large(unprocessed_image, 1024)
 
     processed_image = process_image_2(unprocessed_image, spacing, angles, dotfun=ht.circle_dot, black_generation=black_generation) #this part looks good
 
