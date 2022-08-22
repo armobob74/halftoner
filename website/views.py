@@ -11,7 +11,7 @@ views = Blueprint('views', __name__)
 def index():
     defaults = {
                     'spacing': 8,
-                    'black_generation': 0.0,
+                    'black_generation': 0,
                     'angle_cyan':165,
                     'angle_magenta':45,
                     'angle_yellow':90,
@@ -40,7 +40,7 @@ def index():
             filepath = f'website/static/images/unprocessed/{case_code}.png'
 
         spacing = float(processed_form['spacing'])
-        black_generation = float(processed_form['black_generation'])
+        black_generation = float(processed_form['black_generation']) / 100 #divide by 100 to go from int to percentage
         angles = [
                     float(processed_form['angle_cyan']),
                     float(processed_form['angle_magenta']),
@@ -54,7 +54,7 @@ def index():
         imgheight = imgwidth * image.height / image.width
         defaults = {
                     'spacing': float(processed_form['spacing']),
-                    'black_generation': float(processed_form['black_generation']),
+                    'black_generation': int(processed_form['black_generation']),
                     'angle_cyan':float(processed_form['angle_cyan']),
                     'angle_magenta':float(processed_form['angle_magenta']),
                     'angle_yellow':float(processed_form['angle_yellow']),

@@ -60,6 +60,26 @@ $custom-blue: hsl($primary-hue, 80%, 20%);
 		flex-direction:row;
 		justify-content:flex-end;
 	 }
+	 .slider-holder{
+		 display:flex;
+		 flex-direction:row;
+		 align-items:center;
+		 gap:1em;
+		 input[type="range"]{
+			 /*height:0.5em;
+			 background-color:$bg-color-1;*/
+			 accent-color:$slider-color; 
+		 }
+	 }
+	 input[type="text"] {
+		 $x: 10%;
+		 color: $txt-color-1;
+		 background-color: lighten($bg-color-1, $x);
+		 border: solid 2px lighten($bg-color-1, $x/2);
+		 &:focus {
+			 outline: solid 1px lighten($txt-color-1, 10%);
+		 }
+	 }
  }
 
 
@@ -95,15 +115,6 @@ $custom-blue: hsl($primary-hue, 80%, 20%);
 			 border: solid 2px lighten($bg-color-1, $x/2);
 			 &:hover {
 				 cursor: pointer;
-			 }
-		 }
-		 input[type="text"] {
-			 $x: 10%;
-			 color: $txt-color-1;
-			 background-color: lighten($bg-color-1, $x);
-			 border: solid 2px lighten($bg-color-1, $x/2);
-			 &:focus {
-				 outline: solid 1px lighten($txt-color-1, 10%);
 			 }
 		 }
 	 }

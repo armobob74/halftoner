@@ -4,8 +4,11 @@
 <input id="spacing" name="spacing" type="text" value={{defaults['spacing']}}></input>
 </div>
 <div class="input-div">
-<label for="black_generation">Black generation:</label>
-<input id="black_generation" name="black_generation" type="text" value={{defaults['black_generation']}}></input>
+	<label for="black_generation">Black generation:</label>
+	<div class="slider-holder">
+		<span id="black-generation-value">4</span>
+		<input class="slider" id="black_generation" name="black_generation" type="range" min="0" max="100" value={{defaults['black_generation']}}></input>
+	</div>
 </div>
 </div>
 <div class="option-column">

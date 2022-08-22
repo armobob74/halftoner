@@ -44,6 +44,21 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end; }
+  .customization_options .slider-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em; }
+    .customization_options .slider-holder input[type="range"] {
+      /*height:0.5em;
+			 background-color:$bg-color-1;*/
+      accent-color: #b3fff2; }
+  .customization_options input[type="text"] {
+    color: #b3fff2;
+    background-color: #404040;
+    border: solid 2px #333333; }
+    .customization_options input[type="text"]:focus {
+      outline: solid 1px #e6fffb; }
 
 body {
   background-color: #262626;
@@ -96,9 +111,3 @@ body {
       border: solid 2px #333333; }
       body form #evidence:hover {
         cursor: pointer; }
-    body form input[type="text"] {
-      color: #b3fff2;
-      background-color: #404040;
-      border: solid 2px #333333; }
-      body form input[type="text"]:focus {
-        outline: solid 1px #e6fffb; }
