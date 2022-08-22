@@ -44,6 +44,9 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end; }
+  @media only screen and (max-width: 1000px) {
+    .customization_options #range-input-div {
+      flex-direction: column; } }
   .customization_options .slider-holder {
     display: flex;
     flex-direction: row;

@@ -56,9 +56,14 @@ $custom-blue: hsl($primary-hue, 80%, 20%);
 
 	 .input-div{
 		 width:100%;
-	 	display:flex;
-		flex-direction:row;
-		justify-content:flex-end;
+		 display:flex;
+		 flex-direction:row;
+		 justify-content:flex-end;
+	 }
+	 #range-input-div{
+		 @media only screen and (max-width:$small-screen-width){
+			 flex-direction:column;
+		 }
 	 }
 	 .slider-holder{
 		 display:flex;
